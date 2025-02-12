@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Фильтрация по категориям
+    
     const categoryButtons = document.querySelectorAll('.category-btn');
     const tipCards = document.querySelectorAll('.tip-card');
 
     categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Убираем активный класс у всех кнопок
+           
             categoryButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Поиск
+
     const searchInput = document.querySelector('.search-bar input');
     
     searchInput.addEventListener('input', (e) => {
@@ -38,11 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Открытие/закрытие детальной информации
+    
     const readMoreButtons = document.querySelectorAll('.read-more-btn');
     const closeButtons = document.querySelectorAll('.close-details-btn');
     
-    // Создаем оверлей
+  
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
     document.body.appendChild(overlay);
@@ -66,13 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Закрытие по клику на оверлей
+   
     overlay.addEventListener('click', () => {
         document.querySelector('.tip-details.active')?.classList.remove('active');
         overlay.classList.remove('active');
     });
 
-    // Анимация при скролле
+    
     const observerOptions = {
         threshold: 0.1
     };
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 
-    // Улучшенный калькулятор порций с сохранением истории
+    
     const calculateBtn = document.querySelector('.calculate-btn');
     const calculatorHistory = [];
     
@@ -117,13 +117,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Интерактивный календарь с советами на каждый день
+    
     const calendar = document.querySelector('.calendar-grid');
     const weekDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'];
     const dailyTips = {
         'Пн': { title: 'Гостріння ножів', content: 'Як правильно точити кухонні ножі...' },
         'Вт': { title: 'Зберігання овочів', content: 'Оптимальні умови для зберігання...' },
-        // ... добавьте советы для остальных дней
+        
     };
 
     weekDays.forEach(day => {
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         calendar.appendChild(dayElement);
     });
 
-    // Улучшенная система FAQ с поиском и фильтрацией
+  
     const faqItems = document.querySelectorAll('.faq-item');
     const faqSearch = document.createElement('input');
     faqSearch.type = 'text';
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Интерактивные карточки с анимацией и дополнительной информацией
+    
     const interactiveCards = document.querySelectorAll('.interactive-card');
     
     interactiveCards.forEach(card => {
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             card.classList.toggle('flipped');
         });
 
-        // Добавляем возможность сохранения заметок
+        
         const noteBtn = document.createElement('button');
         noteBtn.textContent = '📝 Додати нотатку';
         noteBtn.classList.add('note-btn');
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Вспомогательные функции
+
 function highlightText(element, searchTerm) {
     const content = element.innerHTML;
     const highlightedContent = content.replace(
