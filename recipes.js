@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Функционал фильтрации
+    
     const categoryButtons = document.querySelectorAll('.category-btn');
     const recipeCards = document.querySelectorAll('.recipe-card');
     const searchInput = document.querySelector('.search-bar input');
     const filterSelects = document.querySelectorAll('.filter-select');
 
-    // Обработка клика по категориям
+    
     categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Убираем активный класс у всех кнопок
+            
             categoryButtons.forEach(btn => btn.classList.remove('active'));
-            // Добавляем активный класс нажатой кнопке
+           
             button.classList.add('active');
 
             const category = button.textContent.toLowerCase();
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Поиск рецептов
+  
     searchInput.addEventListener('input', () => {
         const searchTerm = searchInput.value.toLowerCase();
         
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Фильтрация по селектам
+    
     filterSelects.forEach(select => {
         select.addEventListener('change', applyFilters);
     });
@@ -63,13 +63,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (selectedTime && !time.includes(selectedTime)) shouldShow = false;
             if (selectedDifficulty && !difficulty.includes(selectedDifficulty)) shouldShow = false;
-            // Добавьте дополнительные проверки для кухни и калорийности
-
+           
             card.style.display = shouldShow ? 'block' : 'none';
         });
     }
 
-    // Функционал избранного
+  
     const favoriteButtons = document.querySelectorAll('.recipe-favorite');
     
     favoriteButtons.forEach(button => {
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Пагинация
+   
     const paginationButtons = document.querySelectorAll('.pagination-btn');
     const itemsPerPage = 6;
     let currentPage = 1;
@@ -125,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Изменение количества порций
+    
     const servingsButtons = document.querySelectorAll('.servings-btn');
     if (servingsButtons.length) {
         const servingsText = document.querySelector('.servings-control span');
@@ -147,15 +146,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateIngredientAmounts(newServings) {
         const ingredients = document.querySelectorAll('.ingredient-amount');
         ingredients.forEach(ingredient => {
-            // Здесь нужно добавить логику пересчета количества ингредиентов
-            // в зависимости от базового рецепта
+            
         });
     }
 
-    // Инициализация при загрузке
+    
     showCurrentPageItems();
 
-    // Добавляем систему оценок
+   
     const ratingStars = document.querySelectorAll('.rating-stars span');
     ratingStars.forEach(star => {
         star.addEventListener('click', function() {
@@ -183,15 +181,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function submitRating(recipeId, rating) {
-        // Здесь будет отправка оценки на сервер
+        
         console.log(`Recipe ${recipeId} rated ${rating} stars`);
     }
 
-    // Добавляем таймер приготовления
+
     const startCookingButtons = document.querySelectorAll('.start-cooking-btn');
     startCookingButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const cookingTime = this.dataset.cookingTime; // время в минутах
+            const cookingTime = this.dataset.cookingTime; 
             startCookingTimer(cookingTime, this);
         });
     });
@@ -215,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
 
-    // Уведомления
+   
     function notifyUserCookingDone() {
         if (Notification.permission === 'granted') {
             new Notification('Страва готова!', {
@@ -227,7 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Список покупок
     const shoppingList = new Set();
     const addToShoppingListButtons = document.querySelectorAll('.add-to-shopping-list');
     
@@ -261,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Сохранение в localStorage
+   
     function saveShoppingList() {
         localStorage.setItem('shoppingList', JSON.stringify(Array.from(shoppingList)));
     }
@@ -275,7 +272,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Печать рецепта
     const printButtons = document.querySelectorAll('.print-recipe');
     printButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -310,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `);
     }
 
-    // Поделиться рецептом
+   
     const shareButtons = document.querySelectorAll('.share-recipe');
     shareButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -325,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     url: recipeUrl
                 });
             } else {
-                // Fallback для браузеров без Web Share API
+                
                 const shareDialog = document.createElement('div');
                 shareDialog.className = 'share-dialog';
                 shareDialog.innerHTML = `
@@ -340,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Конвертер единиц измерения
+    
     const unitConverters = document.querySelectorAll('.unit-converter');
     unitConverters.forEach(converter => {
         converter.addEventListener('change', function() {
@@ -362,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'л': (x) => x / 1000,
                 'склянка': (x) => x / 250
             }
-            // Добавьте другие конверсии по необходимости
+            
         };
 
         if (conversions[from] && conversions[from][to]) {
@@ -371,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return amount;
     }
 
-    // Калькулятор калорий
+  
     function calculateTotalCalories() {
         const ingredients = document.querySelectorAll('.ingredient');
         let totalCalories = 0;
@@ -386,10 +382,10 @@ document.addEventListener('DOMContentLoaded', function() {
             `Загальна калорійність: ${Math.round(totalCalories)} ккал`;
     }
 
-    // Загрузка сохраненных рецептов при старте
+    
     loadShoppingList();
     
-    // Инициализация всех подсказок
+    
     const tooltips = document.querySelectorAll('[data-tooltip]');
     tooltips.forEach(tooltip => {
         new Tooltip(tooltip, {
@@ -399,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Класс для подсказок
+
 class Tooltip {
     constructor(element, options) {
         this.element = element;
