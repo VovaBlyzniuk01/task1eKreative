@@ -53,7 +53,7 @@
     font-size: 0.9rem;
 }
 
-/* Форма обратной связи */
+
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -104,7 +104,7 @@
     opacity: 0.9;
 }
 
-/* Адаптивность */
+
 @media (max-width: 768px) {
     .contacts-header {
         padding: 2rem;
