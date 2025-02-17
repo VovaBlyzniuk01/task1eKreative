@@ -1,1 +1,5 @@
-# task1eKreative
+![image](https://github.com/user-attachments/assets/271dfed1-dfa1-4424-be03-f51a8f0096ae)
+# task1eKreative![image](https://github.com/user-attachments/assets/f74aaa40-0bc7-41be-8958-7d55914f5a8b)
+![image](https://github.com/user-attachments/assets/d3086353-331f-4dad-8080-5b6c50bd5127)
+![image](https://github.com/user-attachments/assets/2e314cac-361c-4e99-82fc-6260afcd4fab)
+![image](https://github.com/user-attachments/assets/409de56f-95b8-46da-bceb-9b8aec072a5f)
